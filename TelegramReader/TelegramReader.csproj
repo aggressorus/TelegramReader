@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(SolutionDir)tdlib\libcrypto-1_1-x64.dll&quot; &quot;$(TargetDir)&quot; /Y /D&#xD;&#xA;xcopy &quot;$(SolutionDir)tdlib\libssl-1_1-x64.dll&quot; &quot;$(TargetDir)&quot; /Y /D&#xD;&#xA;xcopy &quot;$(SolutionDir)tdlib\tdjson.dll&quot; &quot;$(TargetDir)&quot; /Y /D&#xD;&#xA;xcopy &quot;$(SolutionDir)tdlib\zlib1.dll&quot; &quot;$(TargetDir)&quot; /Y /D" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="NLOG" Version="5.0.1" />
+    <PackageReference Include="TDLib" Version="1.7.9" />
+  </ItemGroup>
+
+</Project>
